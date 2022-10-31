@@ -6,7 +6,7 @@ module.exports = {
 
     await knex(tables.event).insert([
       {
-        id: "7f28c5f9-d711-4cd6-ac15-d13d71abff83",
+        id: "772cc00e-4f46-4858-bdb6-6225d960904c",
         soort: "Training",
         trainer: "Jasper Van Dyck",
         datum: "vrijdag 28/10/2022",
