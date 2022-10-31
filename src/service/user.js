@@ -18,27 +18,26 @@ const makeLoginData = async (user) => {
   };
 };
 
-const login = async (email, password) => {
-  const user = await usersRepository.findByEmail(email);
+const login = async (name, password) => {
+  const user = await usersRepository.findByName(name);
 
   if (!user) {
-    throw new Error("The given email and password do not match");
+    throw new Error("The given name and password do not match");
   }
 
   const passwordValid = await verifyPassword(password, user.password_hash);
   if (!passwordValid) {
-    throw new Error("The given email and password do not match");
+    throw new Error("The given name and password do not match");
   }
 
   return await makeLoginData(user);
 };
 
-const register = async ({ name, email, password, roles }) => {
+const register = async ({ name, password, roles }) => {
   debugLog("Creating a new user", { name });
   const passwordHash = await hashPassword(password);
-  const user =  await usersRepository.create({
+  const user = await usersRepository.create({
     name,
-    email,
     passwordHash,
     roles,
   });

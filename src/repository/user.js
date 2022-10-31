@@ -10,13 +10,12 @@ const findAll = ({ limit, offset }) => {
     .orderBy("name", "ASC");
 };
 
-const create = async ({ name, email, passwordHash, roles }) => {
+const create = async ({ name, passwordHash, roles }) => {
   try {
     const id = uuid.v4();
     await getKnex()(tables.user).insert({
       id,
       name,
-      email,
       password_hash: passwordHash,
       roles: JSON.stringify(roles),
     });
@@ -32,8 +31,8 @@ const findById = (id) => {
   return getKnex()(tables.user).where("id", id).first();
 };
 
-const findByEmail = (email) => {
-  return getKnex()(tables.user).where("email", email).first();
+const findByName = (name) => {
+  return getKnex()(tables.user).where("name", name).first();
 };
 
 const updateById = async (id, { name }) => {
@@ -41,7 +40,6 @@ const updateById = async (id, { name }) => {
     await getKnex()(tables.user).update({ name }).where("id", id);
   } catch (error) {
     const logger = getLogger();
-
     logger.debug("Error in updateById", { error });
     throw error;
   }
@@ -70,5 +68,5 @@ module.exports = {
   updateById,
   deleteById,
   findCount,
-  findByEmail,
+  findByName,
 };

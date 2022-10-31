@@ -20,13 +20,14 @@ module.exports = {
       saltLength: 16, // bytes
       hashLength: 32, // bytes
       timeCost: 6,
-      memoryCost: 2**17, // 128 MiB (byte = 1024 bits)
+      memoryCost: 2 ** 17, // 128 MiB (byte = 1024 bits)
     },
     jwt: {
-      secret: 'halloikbenjasperikbentwintigjaaroudikkanmetdrietennisballenjonglerenzonderproblemen',
+      secret:
+        "halloikbenjasperikbentwintigjaaroudikkanmetdrietennisballenjonglerenzonderproblemen",
       expirationInterval: 60 * 60 * 1000, // ms (1 hour)
-      issuer: "squidsquadra.webshop.be",
-      audience: "squidsquadra.webshop.be"
-    }
+      issuer: "klauwaerts.wiki.be",
+      audience: "klauwaerts.wiki.be",
+    },
   },
 };

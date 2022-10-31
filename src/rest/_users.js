@@ -21,8 +21,8 @@ const deleteById = async (ctx) => {
 };
 
 const login = async (ctx) => {
-  const { email, password } = ctx.request.body;
-  const response = await userService.login(email, password);
+  const { name, password } = ctx.request.body;
+  const response = await userService.login(name, password);
   ctx.body = response;
 };
 

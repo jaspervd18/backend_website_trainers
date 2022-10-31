@@ -7,10 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npx env-cmd nodemon src/index.js",
-    "web": "node src/index.js",
-    "test": "npx env-cmd -f .env.test jest",
-    "test:coverage": "yarn test --coverage",
-    "test:ci": "jest"
+    "web": "node src/index.js"
   },
   "nodemonConfig": {
     "signal": "SIGTERM",
@@ -45,8 +42,6 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "jest": "^27.4.5",
-    "jest-each": "^27.4.2",
     "nodemon": "^2.0.14",
     "supertest": "^6.1.6"
   }

@@ -1,16 +1,14 @@
 const Router = require("@koa/router");
-const installItemRouter = require("./_items");
+const installEventRouter = require("./_events");
 const installUserRouter = require("./_users");
-const installOrderRouter = require("./_order");
 
 module.exports = (app) => {
   const router = new Router({
     prefix: "/api",
   });
 
+  installEventRouter(router);
   installUserRouter(router);
-  installItemRouter(router);
-  installOrderRouter(router);
 
   app.use(router.routes()).use(router.allowedMethods());
 };

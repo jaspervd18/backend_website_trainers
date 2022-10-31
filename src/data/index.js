@@ -107,9 +107,8 @@ function getKnex() {
 }
 
 const tables = Object.freeze({
-  item: "items",
+  event: "events",
   user: "users",
-  order: "orders",
 });
 
 module.exports = {
