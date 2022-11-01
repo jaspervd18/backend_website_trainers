@@ -25,6 +25,7 @@ const create = async ({
   try {
     const id = uuid.v4();
     await getKnex()(tables.event).insert({
+      id,
       soort,
       trainer,
       datum,
