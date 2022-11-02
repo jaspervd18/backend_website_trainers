@@ -107,7 +107,7 @@ function getKnex() {
 }
 
 const tables = Object.freeze({
-  event: "events",
+  training: "trainingen",
   user: "users",
 });
 
