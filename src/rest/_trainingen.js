@@ -40,7 +40,7 @@ const updateTrainingById = async (ctx) => {
     ctx.body = v.errors;
   }
   ctx.status = 200;
-  ctx.body = await trainingService.giveDiscount(ctx.params.id, {
+  ctx.body = await trainingService.updateById(ctx.params.id, {
     ...ctx.request.body,
   });
 };
