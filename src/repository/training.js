@@ -14,6 +14,10 @@ const findById = (id) => {
   return getKnex()(tables.training).where("id", id).first();
 };
 
+const findAllByDate = (date) => {
+  return getKnex()(tables.training).where("datum", date).orderBy("startuur");
+};
+
 const create = async ({ datum, dag, trainer, startuur, einduur, notities }) => {
   try {
     const id = uuid.v4();
@@ -68,6 +72,7 @@ const updateById = async (
 module.exports = {
   findAll,
   findById,
+  findAllByDate,
   create,
   deleteById,
   updateById,

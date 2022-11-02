@@ -22,6 +22,15 @@ const getById = (id) => {
   return trainingenRepository.findById(id);
 };
 
+const getByDate = async (date) => {
+  debugLog(`Fetching trainingen with date ${date}`);
+  const data = await trainingenRepository.findAllByDate(date);
+  return {
+    data: data,
+    count: data.length,
+  };
+};
+
 const create = ({ datum, dag, trainer, startuur, einduur, notities }) => {
   const newTraining = { datum, dag, trainer, startuur, einduur, notities };
   debugLog(`Creating new training`, newTraining);
@@ -65,6 +74,7 @@ const deleteById = async (id) => {
 module.exports = {
   getAll,
   getById,
+  getByDate,
   create,
   updateById,
   deleteById,

@@ -29,6 +29,10 @@ const getTrainingById = async (ctx) => {
   ctx.body = await trainingService.getById(ctx.params.id);
 };
 
+const getTrainingenByDate = async (ctx) => {
+  ctx.body = await trainingService.getByDate(ctx.params.date);
+};
+
 const updateTrainingById = async (ctx) => {
   const v = await ctx.validate({
     datum: "required|maxLength:50",
@@ -58,6 +62,7 @@ module.exports = (app) => {
   router.get("/", getAllTrainingen);
   router.post("/", createTraining);
   router.get("/:id", getTrainingById);
+  router.get("/date/:date", getTrainingenByDate);
   router.put("/:id", updateTrainingById);
   router.delete("/:id", deleteTraining);
 
