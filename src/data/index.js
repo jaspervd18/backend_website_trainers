@@ -109,6 +109,7 @@ function getKnex() {
 const tables = Object.freeze({
   training: "trainingen",
   wedstrijd: "wedstrijden",
+  kamp: "kampen",
   user: "users",
 });
 
