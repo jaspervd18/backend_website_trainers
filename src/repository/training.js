@@ -3,32 +3,25 @@ const { getKnex, tables } = require("../data");
 const { getLogger } = require("../core/logging");
 
 const findAll = (limit, offset) => {
-  return getKnex()(tables.event)
+  return getKnex()(tables.training)
     .select()
     .limit(limit)
     .offset(offset)
-    .orderBy("trainer", "ASC");
+    .orderBy("datum", "DESC");
 };
 
 const findById = (id) => {
-  return getKnex()(tables.event).where("id", id).first();
+  return getKnex()(tables.training).where("id", id).first();
 };
 
-const create = async ({
-  soort,
-  trainer,
-  datum,
-  startuur,
-  einduur,
-  notities,
-}) => {
+const create = async ({ datum, dag, trainer, startuur, einduur, notities }) => {
   try {
     const id = uuid.v4();
-    await getKnex()(tables.event).insert({
+    await getKnex()(tables.training).insert({
       id,
-      soort,
-      trainer,
       datum,
+      dag,
+      trainer,
       startuur,
       einduur,
       notities,
@@ -45,7 +38,9 @@ const create = async ({
 
 const deleteById = async (id) => {
   try {
-    const rowsAffected = await getKnex()(tables.event).delete().where("id", id);
+    const rowsAffected = await getKnex()(tables.training)
+      .delete()
+      .where("id", id);
     return rowsAffected > 0;
   } catch (error) {
     const logger = getLogger();
@@ -56,11 +51,11 @@ const deleteById = async (id) => {
 
 const updateById = async (
   id,
-  { soort, trainer, datum, startuur, einduur, notities }
+  { datum, dag, trainer, startuur, einduur, notities }
 ) => {
   try {
-    await getKnex()(tables.event)
-      .update({ soort, trainer, datum, startuur, einduur, notities })
+    await getKnex()(tables.training)
+      .update({ datum, dag, trainer, startuur, einduur, notities })
       .where("id", id);
     return await findById(id);
   } catch (error) {

@@ -1,5 +1,5 @@
 const Router = require("@koa/router");
-const installEventRouter = require("./_events");
+const installTrainingRouter = require("./_trainingen");
 const installUserRouter = require("./_users");
 
 module.exports = (app) => {
@@ -7,7 +7,7 @@ module.exports = (app) => {
     prefix: "/api",
   });
 
-  installEventRouter(router);
+  installTrainingRouter(router);
   installUserRouter(router);
 
   app.use(router.routes()).use(router.allowedMethods());
