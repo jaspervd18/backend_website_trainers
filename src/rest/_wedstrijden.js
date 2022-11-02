@@ -42,7 +42,7 @@ const updateWedstrijdById = async (ctx) => {
     ctx.body = v.errors;
   }
   ctx.status = 200;
-  ctx.body = await wedstrijdService.giveDiscount(ctx.params.id, {
+  ctx.body = await wedstrijdService.updateById(ctx.params.id, {
     ...ctx.request.body,
   });
 };
