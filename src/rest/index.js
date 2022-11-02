@@ -1,5 +1,6 @@
 const Router = require("@koa/router");
 const installTrainingRouter = require("./_trainingen");
+const installWedstrijdRouter = require("./_wedstrijden");
 const installUserRouter = require("./_users");
 
 module.exports = (app) => {
@@ -8,6 +9,7 @@ module.exports = (app) => {
   });
 
   installTrainingRouter(router);
+  installWedstrijdRouter(router);
   installUserRouter(router);
 
   app.use(router.routes()).use(router.allowedMethods());

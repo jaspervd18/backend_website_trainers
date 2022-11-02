@@ -30,7 +30,10 @@ const getTrainingById = async (ctx) => {
 };
 
 const updateTrainingById = async (ctx) => {
-  const v = await ctx.validate({});
+  const v = await ctx.validate({
+    datum: "required|maxLength:50",
+    dag: "required|maxLength:50",
+  });
 
   if (v.fails()) {
     ctx.status = 422;
