@@ -32,6 +32,10 @@ const getByDate = async (date) => {
 };
 
 const create = ({ datum, dag, trainer, startuur, einduur, notities }) => {
+  trainer = trainer || null;
+  startuur = startuur || null;
+  einduur = einduur || null;
+  notities = notities || null;
   const newTraining = { datum, dag, trainer, startuur, einduur, notities };
   debugLog(`Creating new training`, newTraining);
   return trainingenRepository.create(newTraining);
