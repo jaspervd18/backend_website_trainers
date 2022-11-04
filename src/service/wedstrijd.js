@@ -23,6 +23,9 @@ const getById = (id) => {
 };
 
 const create = ({ datum, dag, naam, locatie, trainer, functie, notities }) => {
+  trainer = trainer || null;
+  functie = functie || null;
+  notities = notities || null;
   const newWedstrijd = {
     datum,
     dag,
