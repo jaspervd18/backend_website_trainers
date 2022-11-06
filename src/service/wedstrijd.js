@@ -41,8 +41,11 @@ const create = ({ datum, dag, naam, locatie, trainer, functie, notities }) => {
 
 const updateById = async (
   id,
-  { datum, dag, naam, locatie, trainer = null, functie = null, notities = null }
+  { datum, dag, naam, locatie, trainer, functie, notities }
 ) => {
+  trainer = trainer || null;
+  functie = functie || null;
+  notities = notities || null;
   debugLog(`Updating wedstrijd with id ${id}`, {
     datum,
     dag,
