@@ -1,12 +1,12 @@
 {
-  "name": "opdracht",
+  "name": "backend_website_trainers",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/jaspervd18/backend_website_trainers.git",
   "author": "Jasper Van Dyck <jasper.vandyck@student.hogent.be>",
   "license": "MIT",
   "scripts": {
-    "start": "npx env-cmd nodemon",
+    "start": "npx env-cmd nodemon src/index.js",
     "web": "node src/index.js"
   },
   "nodemonConfig": {
