@@ -7,7 +7,7 @@ const { initializeData, shutdownData } = require("./data");
 const installRest = require("./rest");
 const niv = require("node-input-validator");
 
-// const NODE_ENV = config.get('env');
+const NODE_ENV = config.get("env");
 const CORS_ORIGINS = config.get("cors.origins");
 const CORS_MAX_AGE = config.get("cors.maxAge");
 const LOG_LEVEL = config.get("log.level");
@@ -17,6 +17,8 @@ module.exports = async function createServer() {
   initialiseerLogger({
     level: LOG_LEVEL,
     disabled: LOG_DISABLED,
+    isProduction: NODE_ENV === "production",
+    defaultMeta: { NODE_ENV },
   });
 
   await initializeData();

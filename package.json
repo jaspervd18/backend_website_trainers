@@ -5,10 +5,17 @@
   "repository": "https://github.com/jaspervd18/backend_website_trainers.git",
   "author": "Jasper Van Dyck <jasper.vandyck@student.hogent.be>",
   "license": "MIT",
+  "jest": {
+    "testPathIgnorePatterns": [
+      "src",
+      "node_modules",
+      "config"
+    ]
+  },
   "scripts": {
-    "start": "npx env-cmd nodemon src/index.js",
+    "start": "npx env-cmd nodemon",
     "web": "node src/index.js",
-    "test": "jest",
+    "test": "npx env-cmd -f .env.test jest",
     "test:coverage": "yarn test --coverage"
   },
   "nodemonConfig": {

@@ -1,7 +1,7 @@
 module.exports = {
   log: {
     level: "silly",
-    disabled: false,
+    disabled: true,
   },
   cors: {
     origins: ["http://localhost:3000"],
@@ -11,7 +11,7 @@ module.exports = {
     client: "mysql2",
     host: "localhost",
     port: 3306,
-    name: "wiki_klauwaerts",
+    name: "wiki_klauwaerts_test",
     username: "root",
     password: "root",
   },
