@@ -24,6 +24,8 @@ module.exports = {
       memoryCost: 2 ** 17,
     },
     jwt: {
+      secret:
+        "halloikbenjasperikbentwintigjaaroudikkanmetdrietennisballenjonglerenzonderproblemen",
       expirationInterval: 3 * 24 * 60 * 60 * 1000,
       issuer: "klauwaerts.wiki.be",
       audience: "klauwaerts.wiki.be",
