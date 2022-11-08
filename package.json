@@ -1,9 +1,6 @@
 {
   "name": "backend_website_trainers",
   "version": "1.0.0",
-  "engines": {
-    "node": "18.12.1"
-  },
   "main": "index.js",
   "repository": "https://github.com/jaspervd18/backend_website_trainers.git",
   "author": "Jasper Van Dyck <jasper.vandyck@student.hogent.be>",
